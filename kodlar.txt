@@ -1,0 +1,36 @@
+SELECT *
+FROM stok
+INNER JOIN siparisler ON siparisler.store_id=stok.store_id;
+
+
+
+
+
+
+
+SELECT        COUNT(*) AS Expr1
+FROM            musteriler
+WHERE        (first_name LIKE 't%a')
+
+
+
+
+
+SELECT        kategoriler.category_name
+FROM            urunler INNER JOIN
+                         kategoriler ON kategoriler.category_id = urunler.category_id
+WHERE        (urunler.list_price >
+                             (SELECT        AVG(list_price) AS Expr1
+                               FROM            urunler AS urunler_1))
+
+
+
+
+SELECT        kategoriler.category_name
+FROM            urunler INNER JOIN
+                         kategoriler ON kategoriler.category_id = urunler.category_id
+WHERE        (urunler.list_price >
+                             (SELECT        AVG(list_price) 
+  FROM            urunler))
+order by list_price
+
